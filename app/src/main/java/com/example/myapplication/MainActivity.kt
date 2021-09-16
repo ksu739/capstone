@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         signupInit()
         loginInit()
     }
+//하이요
 
     private fun signupInit() {
         binding.signup.setOnClickListener {
