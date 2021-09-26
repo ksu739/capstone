@@ -2,8 +2,16 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.API.loginmodel
+import com.example.myapplication.API.loginreturnmodel
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.utility.APP
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy {
@@ -17,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         signupInit()
         loginInit()
     }
-//하이요
+    //하이요
 
     private fun signupInit() {
         binding.signup.setOnClickListener {
@@ -29,9 +37,37 @@ class MainActivity : AppCompatActivity() {
 
     private fun loginInit() {
         binding.login.setOnClickListener {
-            val intent = Intent(this, Loginactivity::class.java)
-            startActivity(intent)
-            finish()
+            val id: String = binding.userid.text.toString()   // 여기서부터 시작
+            val pwd: String = binding.userpwd.text.toString()
+            val call = APP.service.login(loginmodel(id, pwd))  //!!는 절대 NULL이 될 수 없음 나오면 튕김
+            call.enqueue(object : Callback<loginreturnmodel> {
+                override fun onResponse(
+                    call: Call<loginreturnmodel>,
+                    response: Response<loginreturnmodel>
+                ) {
+                    when (response.code()) {
+                        200 -> {
+                            val intent = Intent(this@MainActivity, Loginactivity::class.java)
+                            val bundle = Bundle()
+                            bundle.putString("id", response.body()?.id)  // ? = NULL 일수있다.
+                            bundle.putString("phone", response.body()?.phone)
+                            //그외 신상정보 나중에 추가로 넣어주기
+                            intent.putExtras(bundle)
+                            Log.i("abcdefg", response.body().toString()) // 로그 체크용
+                            startActivity(intent)
+                            finish()
+                        }
+                        401 -> {
+                            Toast.makeText(this@MainActivity, "login failed", Toast.LENGTH_LONG)
+                                .show() // 오류
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<loginreturnmodel>, t: Throwable) {
+                    Toast.makeText(this@MainActivity, "오류입니다", Toast.LENGTH_LONG).show()
+                }
+            })
         }
     }
 }
