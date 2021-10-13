@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.API.loginmodel
 import com.example.myapplication.API.loginreturnmodel
+import com.example.myapplication.API.signupmodel
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.utility.APP
 import retrofit2.Call
@@ -31,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         binding.signup.setOnClickListener {
             val intent = Intent(this, Signupactivity::class.java)
             startActivity(intent)
-
         }
     }
 

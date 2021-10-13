@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginactivityBinding
 
-
 class Loginactivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityLoginactivityBinding.inflate(layoutInflater)
