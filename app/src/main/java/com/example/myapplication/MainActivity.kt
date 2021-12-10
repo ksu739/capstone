@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.API.loginmodel
 import com.example.myapplication.API.loginreturnmodel
-import com.example.myapplication.API.signupmodel
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.utility.APP
 import retrofit2.Call
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         signupInit()
         loginInit()
+
     }
     //하이요
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+// 이름 전화번호 << 필수선택 나머지는 제공 여부선택?
     private fun loginInit() {
         binding.login.setOnClickListener {
             val id: String = binding.userid.text.toString()   // 여기서부터 시작
@@ -49,10 +49,8 @@ class MainActivity : AppCompatActivity() {
                         200 -> {
                             val intent = Intent(this@MainActivity, Loginactivity::class.java)
                             val bundle = Bundle()
-                            bundle.putString("id", response.body()?.id)  // ? = NULL 일수있다.
-                            bundle.putString("phone", response.body()?.phone)
                             //그외 신상정보 나중에 추가로 넣어주기
-                            intent.putExtras(bundle)
+                            intent.putExtra("asd",response.body()?.user);
                             Log.i("abcdefg", response.body().toString()) // 로그 체크용
                             startActivity(intent)
                             finish()
@@ -70,6 +68,8 @@ class MainActivity : AppCompatActivity() {
             })
         }
     }
+
+
 }
 // 사인업 하면 그 아이디 비번 , 그외
 // 비밀번호 규칙

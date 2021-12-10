@@ -11,70 +11,44 @@
         android:id="@+id/signupcheck"
         android:layout_width="287dp"
         android:layout_height="48dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="62dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="40dp"
         android:gravity="center"
         android:text="가입신청"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="22dp"
-        android:gravity="center"
-        android:text="비밀번호"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/signuppwd"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="38dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
         android:gravity="center"
         android:text="이름"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/name"
+        app:layout_constraintEnd_toStartOf="@+id/signupname"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView"
+        android:layout_width="38dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="40dp"
         android:gravity="center"
-        android:text="아이디"
+        android:text="학과"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/signupid"
+        app:layout_constraintEnd_toStartOf="@+id/signupmajor"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="22dp"
-        android:gravity="center"
-        android:text="비밀번호 확인"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/pwdcheck"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/signupname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="이름"
         android:inputType="textPersonName"
@@ -82,40 +56,160 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/signupmajor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="학과명"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupname" />
+
+    <EditText
         android:id="@+id/signupid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/signupmajor" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:text="아이디"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/signupid"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/pwdcheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="비밀번호 확인"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signuppwd" />
+
+    <EditText
+        android:id="@+id/signupphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="전화번호"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwdcheck" />
+
+    <EditText
+        android:id="@+id/signupaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="주소"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupphone" />
+
+    <EditText
+        android:id="@+id/signupsecretnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="주민등록번호"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupaddress" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:text="비밀번호 확인"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/pwdcheck"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:text="전화번호"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/signupphone"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:text="주소"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/signupaddress"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:text="주민등록번호"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/signupsecretnum"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/signuppwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupid" />
 
-    <EditText
-        android:id="@+id/pwdcheck"
+    <TextView
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="40dp"
-        android:ems="10"
-        android:hint="비밀번호 확인"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signuppwd" />
+        android:gravity="center"
+        android:text="비밀번호"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/signuppwd"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

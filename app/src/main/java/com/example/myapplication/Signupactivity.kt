@@ -33,12 +33,19 @@ class Signupactivity : AppCompatActivity() {
 
     private fun signup() {
         binding.signupcheck.setOnClickListener {
+            // "name" : "1" , "major" : "1", "id" : "1", "phone" : "1", "address" : "1", "secretnum" : "1", "pwd" : "1"
 
-            val phone: String = binding.name.text.toString()
+            val name: String = binding.signupname.text.toString()
+            val major: String = binding.signupmajor.text.toString()
             val id: String = binding.signupid.text.toString()
+            val phone: String = binding.signupphone.text.toString()
+            val address: String = binding.signupaddress.text.toString()
+            val secretnum: String = binding.signupsecretnum.text.toString()
             val pwd: String = binding.signuppwd.text.toString()
             val check = binding.pwdcheck.text.toString()
-            val call = APP.service.signup(signupmodel(phone, id, pwd))
+
+
+            val call = APP.service.signup(signupmodel(name, major, id, phone, address, secretnum, pwd));
 
             if (registercheck(phone, id, pwd, check)) {
                 call.enqueue(object : Callback<signupreturnmodel> {
